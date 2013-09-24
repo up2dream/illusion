@@ -49,8 +49,20 @@ public class TestPoint3D extends Assert {
 	
 	@Test
 	public void test_hashCode() {
-		Point3D pt = new Point3D(.1f, .2f, .3f);
-		pt.hashCode();
+		{
+			float x = 0f;
+			float y = 0f;
+			float z = 0f;
+			Point3D pt = new Point3D(x, y, z);
+			assertEquals(Float.valueOf(x).hashCode()^Float.valueOf(y).hashCode()^Float.valueOf(z).hashCode(), pt.hashCode());
+		}
+		{
+			float x = .1f;
+			float y = .2f;
+			float z = .3f;
+			Point3D pt = new Point3D(x, y, z);
+			assertEquals(Float.valueOf(x).hashCode()^Float.valueOf(y).hashCode()^Float.valueOf(z).hashCode(), pt.hashCode());
+		}
 	}
 	
 	@Test
@@ -69,6 +81,10 @@ public class TestPoint3D extends Assert {
 			Point3D pt1 = new Point3D(.1f, .2f, .3f);
 			Point3D pt2 = new Point3D(.1f, .2f, .3f);
 			assertEquals(pt1, pt2);
+		}
+		{
+			Point3D pt1 = new Point3D(.1f, .2f, .3f);
+			assertFalse(pt1.equals(null));
 		}
 	}
 	
