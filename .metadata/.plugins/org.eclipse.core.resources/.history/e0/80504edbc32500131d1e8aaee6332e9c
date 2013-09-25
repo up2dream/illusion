@@ -1,0 +1,74 @@
+package illusion.base;
+
+/**
+ * @author HuBin1
+ *
+ */
+public class Point3D {
+	
+	// ===========================================================
+	// Constants
+	// ===========================================================
+
+	// ===========================================================
+	// Fields
+	// ===========================================================
+
+	private float tuple[] = new float[4];
+	
+	// ===========================================================
+	// Constructors
+	// ===========================================================
+
+	public Point3D() {
+		tuple[3] = 1;
+	}
+	
+	public Point3D(float x, float y, float z) {
+		this();
+		
+		tuple[0] = x;
+		tuple[1] = y;
+		tuple[2] = z;
+	}
+	
+	// ===========================================================
+	// Getter & Setter
+	// ===========================================================
+
+	public float x() {
+		return tuple[0];
+	}
+	
+	// ===========================================================
+	// Methods for/from SuperClass/Interfaces
+	// ===========================================================
+
+	@Override
+	public boolean equals(Object val) {
+		if (val == null) {
+			return false;
+		}
+		
+		if (!(val instanceof Point3D)) {
+			return false;
+		}
+		
+		Point3D valPt = (Point3D)val;
+		return mX==valPt.mX && mY==valPt.mY && mZ==valPt.mZ;
+	}
+	
+	@Override
+	public int hashCode() {
+		return Float.valueOf(mX).hashCode() ^ Float.valueOf(mY).hashCode() ^ Float.valueOf(mZ).hashCode();
+	}
+	
+	// ===========================================================
+	// Methods
+	// ===========================================================
+
+	// ===========================================================
+	// Inner and Anonymous Classes
+	// ===========================================================
+
+}
